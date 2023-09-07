@@ -1,0 +1,20 @@
+a on ago and new our Four this forth score seven years nation brought fathers continent
+in to all and are men the that equal Liberty created conceived dedicated proposition
+a in or so we Now any are war that civil great nation nation engaged testing whether conceived
+a We We of on so and are can met war come have long that field great battle endure dedicated
+a a as of to for who gave here that field final lives place their those portion resting dedicate
+It do is we and live that that that this might nation proper should fitting altogether
+a in we we we But can can can not not not this sense ground hallow larger dedicate consecrate
+it The and far men our who dead have here poor above brave living struggled consecrated
+or to we The add but nor say here long note what will power world little detract remember
+It be is it to us can did for the here here they what never forget living rather dedicated
+It is so to far the who have here they thus work nobly which fought rather advanced unfinished
+be to to us us for the dead from here task that great these before honored dedicated remaining
+of to we for the full gave last take that that they cause which measure devotion devotion increased
+in we God not dead died have here that that this vain shall these under highly nation resolve
+a by of of and for new the the the have that birth shall people people people freedom government
+not the from earth shall perish
+
+utilit_lib.print_doc(my_document)
+
+my_document.print_doc()
