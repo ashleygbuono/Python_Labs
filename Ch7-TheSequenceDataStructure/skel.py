@@ -5,36 +5,24 @@ from random import randint        # To generate random integers
 def find_common_unique_elements( iter1, iter2 ):
     list_with_common = []
     # Do something here to fill up the list
-    list1_pointer = 0
-    list2_pointer = 0
-    iter1_len = len(iter1)
-    iter2_len = len(iter2)
+    for iter1_elem in iter1:
+        if iter1_elem in iter2 and iter1_elem not in list_with_common:
+            list_with_common.append( iter1_elem )
 
-    while list1_pointer < iter1_len and list2_pointer < iter2_len:
-        if iter1[list1_pointer] == iter2[list2_pointer]:
-            list_with_common.append(iter1[list1_pointer])
-            list1_pointer += 1
-            list2_pointer += 1
-        elif iter1[list1_pointer] < iter2[list2_pointer]:
-            list1_pointer += 1
-        else:
-            list2_pointer += 1
-
-    #}')
     return list_with_common
 # This function calls the above for two lists
 # We check if we have at least two lists
 def find_common_elems_buncha_iters( buncha_iters ):
+    
     # Need to know HOW MANY LISTS we have
-    iters_len = len(buncha_iters)
     # Pass first two iterables; save common elements
     # How do we access the first two elements of the buncha_iters structure?
     common_elems = find_common_unique_elements(buncha_iters[0], buncha_iters[1])
-
-    for list in range(2, iters_len):
-        print(f'{list = }')
-        common_elems = find_common_unique_elements( common_elems, buncha_iters[list] )
+    
     # Need an expression that ITERATES OVER REMAINING LISTS IN buncha_iters
+    
+    for an_iter in buncha_iters[2:]:
+        common_elems = find_common_unique_elements( common_elems, an_iter )
 
     # In the block coded above, call find_common_unique_elements with arguments
     # common_elems and the NEXT LIST in the remaining lists in buncha_iters
@@ -65,14 +53,11 @@ def main( ):
     # for num_iterators times
     buncha_iters = [gen_return_random_num_list(num_each_iterator) for row in range(0, num_iterators)]
     # Print the buncha_iters generated
-    #print(f'{buncha_iters}')
     # One list per line - iterate over buncha_iters, print an element
     # Sort the 'per line' list - makes it easier to read
     for elem in buncha_iters:
         elem.sort()
-        #print(f'{elem}')
 
-    #print(f'{buncha_iters = }')
     # OK - let's print out the common elements - this one's a gimme
     print(f'Elements common to all lists: {find_common_elems_buncha_iters( buncha_iters )}')
 
