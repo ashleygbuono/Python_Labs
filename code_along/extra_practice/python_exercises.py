@@ -47,7 +47,14 @@ print(f'The factorial function returns: {factorial(6)} for argument 6')
 
 
 #Write a Python function to check whether a number falls within a given range.
-
+def in_range(num, low, high):
+    if low <= num <= high:
+        return True
+    else:
+        return False
+    
+print(f'The in_range function returns: {in_range(43, 22, 100)} for arguments 43, 22, 100')
+print(f'The in_range function returns: {in_range(30, 32, 34)} for arguments 30, 32, 34')
 
 
 #Write a Python function that accepts a string and counts the number of upper and lower case letters.
@@ -94,21 +101,46 @@ print(f'The is_prime function returns: {is_prime(2064)} for argument 2064')
 
 
 #Write a Python function that checks whether a passed string is a palindrome or not.
+def is_palindrome(str):
+    reversed_str = str[::-1]
+    if str == reversed_str:
+        return True
+    else: 
+        return False
 
-
+print(f'The is_palindrome function returns: {is_palindrome("This is a palindrome")} for argument "This is a palindrome"')
+print(f'The is_palindrome function returns: {is_palindrome("racecar")} for argument "racecar"')
 
 #Write a Python function to check whether a string is a pangram or not.
 #Note : Pangrams are words or sentences containing every letter of the alphabet at least once.
+def is_panagram(str):
+    alpha_chars = "abcdefghijklmnopqrstuvwxyz"
 
+    for char in alpha_chars:
+        if char not in str.lower():
+            return False
+        
+    return True
+
+print(f'The is_panagram function returns: {is_panagram("The quick brown fox jumps over the lazy dog")} for argument "The quick brown fox jumps over the lazy dog"')
 
 
 #Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a hyphen-separated sequence after sorting them alphabetically.
+def sorted_hyphen(seq):
+    split_seq = seq.split("-")
+    split_seq.sort()
+    joined_seq = "-".join(split_seq)
+    return joined_seq
+
+print(f'The sorted_hyphen function returns: {sorted_hyphen("red-green-blue")} for argument "red-green-blue"')
 
 
 #Write a Python function to create and print a list where the values are the squares of numbers between 1 and 30 (both included).
-
-
-#Write a Python program to create a chain of function decorators (bold, italic, underline etc.).
+def list_sqrt():
+    from math import sqrt
+    list_1 = [sqrt(num) for num in range(1, 31)]
+    print(f'The list_sqrt function returns: {list_1}')
+list_sqrt()
 
 
 #Write a Python program to execute a string containing Python code.
@@ -118,7 +150,9 @@ print(f'The is_prime function returns: {is_prime(2064)} for argument 2064')
 #Write a Python program to access a function inside a function.
 
 
+
 #Write a Python program to detect the number of local variables declared in a function.
+
 
 
 # Write a Python program that invokes a function after a specified period of time.
@@ -126,4 +160,13 @@ print(f'The is_prime function returns: {is_prime(2064)} for argument 2064')
 #Square root after specific miliseconds:
 #4.0
 #158.42979517754858
+def timeout(num):
+    from time import sleep
+    from math import sqrt
+    
+    seconds = 4
+    print(f'The square root of {num}, performed after {seconds} seconds, is {sqrt(num)}')
+    sleep(seconds)
+
+timeout(4341321)
 

@@ -12,15 +12,20 @@ We'll do sorting, removing duplicates along the way
 # Use an import from the Python standard library that
 # is a string of lower-case characters
 # (yes - not difficult to type 'abc...' but there is something out there already!)
-
+abe_no_punct = ""
 # Remove punctuation - not all punct chars included
+punct_chars_1 = ".,?'!_"
+punct_chars_2 = '"-'
 # Assign the original string (abe_talking) to another string
-# (abe_no_punct)
-
+for char in abe_talking:
+    if char not in punct_chars_1 and punct_chars_2:
+        abe_no_punct += char
 
 # Need to convert abe_no_punct which is a string into a list of words or the counting stuff
 # used in the dictionaries counts 'sub-words' like 'be' in 'before', et. al.
 # Might as well assign the list of words to abe_no_punct
+abe_no_punct = abe_no_punct.split()
+print(abe_no_punct)
 
 
 # Iterate over each character in punct_chars using
@@ -29,7 +34,7 @@ We'll do sorting, removing duplicates along the way
 # to itself. Idea is each time you remove a punct char you
 # reassign the 'cleaner' string to itself so the effect is
 # cumulative
-punct_chars = "\"'.,?!_-"
+
 
 # Code here to strip the punctuation from the original string
 # and save the stripped string for later use
