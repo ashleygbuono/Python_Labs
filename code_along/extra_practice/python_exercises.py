@@ -144,15 +144,33 @@ list_sqrt()
 
 
 #Write a Python program to execute a string containing Python code.
+a_string = "3 + 9"
 
-
+print(f'The output of the code presented in a_string is {eval(a_string)}')
 
 #Write a Python program to access a function inside a function.
+def a_function(var1, var2):
 
+    def helper(thing1, thing2):
+        if type(thing1) is type(thing2):
+            return True
+        else:
+            return False
+        
+
+    return helper(var1, var2)
+
+print(f'To return {a_function(5, "hi world")}, a_function receives value {a_function(5, "hi world")} from helper function defined & accessed inside of it')
 
 
 #Write a Python program to detect the number of local variables declared in a function.
+def local_vars():
+    str = "test string"
+    list_1 = ["a", "b", "c", 3, 2, 1]
+    a_set = set()
+    list_comp = [elem + elem for elem in list_1]
 
+print(f'The number of local variables in local_vars function is {local_vars.__code__.co_nlocals}')
 
 
 # Write a Python program that invokes a function after a specified period of time.
