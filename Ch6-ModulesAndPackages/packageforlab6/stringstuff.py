@@ -37,13 +37,5 @@ def make_title_case( a_string ):
     '''
     return a_string.title()
 
-def main() :
-    a_string = "Mary had a little lamb"
-    print(f'Original string: {a_string}')
-    print(f'Upper case: {make_upper_case( a_string ) }')
-    print(f'Lower case: {make_lower_case( a_string ) }')
-    print(f'Title case: {make_title_case( a_string ) }')
-    print(f'Number of characters: {string_length( a_string ) }')
-
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+    #main()

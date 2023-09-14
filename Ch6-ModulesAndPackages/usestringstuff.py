@@ -6,12 +6,15 @@ put tht code here if you like....
 '''
 from stringstuff import string_length, make_upper_case, make_lower_case, make_title_case
 
-a_string = "Mary had a little lamb"
+def main() :
+    a_string = "Mary had a little lamb"
+    print(f'Original string: {a_string}')
+    print(f'Upper case: {make_upper_case( a_string ) }')
+    print(f'Lower case: {make_lower_case( a_string ) }')
+    print(f'Title case: {make_title_case( a_string ) }')
+    print(f'Number of characters: {string_length( a_string ) }')
+
+if __name__ == "__main__":
+    main()
 
 print(f'Calling stringstuff functions from my program {__file__}')
-
-print(f'Original string: {a_string}')
-print(f'Upper case: {make_upper_case(a_string)}')
-print(f'Lower case: {make_lower_case(a_string)}')
-print(f'Title case: {make_title_case(a_string)}')
-print(f'Number of characters: {string_length(a_string)}')
