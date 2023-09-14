@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+#PART 2: Create a table of word and letter counts
+
 from string import ascii_lowercase
 from getty import abe_talking
+import re
 """
 Create a table of word and letter occurrences in the
 Gettysburg address.
@@ -14,32 +17,25 @@ We'll do sorting, removing duplicates along the way
 # (yes - not difficult to type 'abc...' but there is something out there already!)
 abe_no_punct = ""
 # Remove punctuation - not all punct chars included
-punct_chars_1 = ".,?'!_"
-punct_chars_2 = '"-'
+#punct_chars_1 = ".,?'!_"
+#punct_chars_2 = '"-'
 # Assign the original string (abe_talking) to another string
-for char in abe_talking:
-    if char not in punct_chars_1 and punct_chars_2:
-        abe_no_punct += char
+#for char in abe_talking:
+   # if char not in punct_chars_1 and punct_chars_2:
+       # abe_no_punct += char
 
 # Need to convert abe_no_punct which is a string into a list of words or the counting stuff
 # used in the dictionaries counts 'sub-words' like 'be' in 'before', et. al.
 # Might as well assign the list of words to abe_no_punct
-abe_no_punct = abe_no_punct.split()
-print(abe_no_punct)
-
-
-# Iterate over each character in punct_chars using
-# a string method to REPLACE the punct char with an
-# empty string ('') and assign the replaced punct char string
-# to itself. Idea is each time you remove a punct char you
-# reassign the 'cleaner' string to itself so the effect is
-# cumulative
-
 
 # Code here to strip the punctuation from the original string
 # and save the stripped string for later use
+abe_no_punct = re.sub("[.,-]", "", abe_talking)
+abe_no_punct = re.sub('["]', "", abe_no_punct)
+abe_no_punct = abe_no_punct.replace("\n", "")
 
 # Convert string to a list of words using split()
+abe_split = abe_no_punct.split(" ")
 
 # Eventually you'll be iterating over the words in the punct-removed
 # list of words created above, counting the words...
@@ -53,6 +49,7 @@ print(abe_no_punct)
 #
 # The sorting, converting to lower case and saving only unique words
 # MAY BE DONE WITH ONE LINE OF CODE (feel free to use more, but...)
+unique_address_words = sorted({a_word.lower() for a_word in abe_split})
 
 # Code that stuff here
 
@@ -66,7 +63,7 @@ print(abe_no_punct)
 #
 # The dictionary creation and count may be
 # CODED IN ONE LINE (usual disclaimer goes here...)
-
+word_table = {word: abe_split.count(word) for word in unique_address_words}
 # Code dictionary creation with counting here
 
 
@@ -92,7 +89,11 @@ years                                            1
 # entry properly formatted
 # Note the header is lined up as well
 # Should take about 4-5 lines, depending
-
+word_header= "Word"
+count_header = "Count"
+print(f'{word_header:<20}{count_header:>30}')
+for word, word_count in word_table.items():
+    print(f'{word:<20}{word_count:>30}')
 # Print out the word count table here
 
 
@@ -103,11 +104,16 @@ years                                            1
 # The ONE LINE (or whatever code you used) to do this is remarkably similar
 # to that used for the word count (which makes sense - still counting
 # characters in a sequence (which a string is))
+letter_table = {letter: abe_no_punct.count(letter) for letter in ascii_lowercase}
+letter_header = "Header"
+count_header = "Count"
 
 # Code that here.....
 
 # Print the letter/count table using code frighteningly similar
 # to that used to print the word count table
-
+print(f'{letter_header:<20}{count_header:>30}')
+for letter, letter_count in letter_table.items():
+    print(f'{letter:<20}{letter_count:>30}')
 # Do that here....
 
