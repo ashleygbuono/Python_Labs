@@ -1,1 +1,2 @@
-from packageforlab6 import numberstuff, stringstuff
+import packageforlab6.numberstuff
+import packageforlab6.stringstuff

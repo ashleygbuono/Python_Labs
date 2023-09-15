@@ -1,4 +1,4 @@
-from packageforlab6 import numberstuff, stringstuff
+#from packageforlab6 import numberstuff, stringstuff
 
 def main() :
     a_num = 12
