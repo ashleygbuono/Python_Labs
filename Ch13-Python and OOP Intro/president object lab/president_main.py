@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-from president import President
+from president_codealong import President
 
-for term in 1, 26, 39, 45:
+for term in 1, 26, 39, 44:
     p = President(term)  # George Washington
 
     print("{} {} was born at {}, {} on {}".format(
