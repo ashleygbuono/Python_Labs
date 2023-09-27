@@ -14,6 +14,7 @@ my_mat = Matrix( [1, 2, 3, 4, 5], (2,3) ) yields a 2 x 3 matrix =>
 
 
 '''
+import operator
 
 class Matrix:
     '''
@@ -58,9 +59,48 @@ class Matrix:
 
         return matrix_str
 
-
-
+    def _operate_on_matrices(self, rho_mat, operation):
+        # Check if rows and columns of both match
+        if self._rows != rho_mat._rows or self._columns != rho_mat._columns:
+            raise ValueError ('Matrix dimensions incompatible')
+        # All good...let's add elements, return result
+        return Matrix([operation(elem1, elem2) for (elem1, elem2) in zip(self._data, rho_mat._data)], 
+                             (self._columns, self._rows))
+        
+    
+    # Add two matrices
+    def __add__(self, rho_mat):       
+        return self._operate_on_matrices(rho_mat, operator.add)
+    
+    # Subtract two matrices
+    def __sub__(self, rho_mat):       
+        return self._operate_on_matrices(rho_mat, operator.sub)  
+    
+    # Multiply (dot product, actually) two matrices
+    def __mul__(self, rho_mat):       
+        return self._operate_on_matrices(rho_mat, operator.mul)      
+    
+    # Divide (element divide) two matrices
+    def __truediv__(self, rho_mat):       
+        return self._operate_on_matrices(rho_mat, operator.truediv)     
+        
+        
+        
 if __name__ == "__main__":
-    mat = Matrix([1, 2, 3, 4, 5, 6], (2, 3))
-
-    print(mat)  
+    mat = Matrix([1,2,3,4,5,6], (2, 3))
+    mat2 = Matrix([11,12,13,14,15,16], (2, 3))
+    
+    print("Matrix 'mat':")
+    print(mat)
+    print("Matrix 'mat2':")
+    print(mat2)    
+    # Add them, print result 
+    sum_mats = mat + mat2  
+    print("Sum of the above matrices:")
+    print(sum_mats)  
+    diff_mats = sum_mats - mat
+    print("Difference of the above matrices:")
+    print(diff_mats)  
+    dot_prod_mats = sum_mats * mat
+    print("Dot product of the above matrices:")
+    print(dot_prod_mats)  
